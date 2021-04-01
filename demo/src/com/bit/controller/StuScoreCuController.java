@@ -16,21 +16,12 @@ import com.test.model.StuScoreDto;
 
 @WebServlet("/stuMgmt/stuScoreList.bit")
 public class StuScoreCuController extends HttpServlet {
-	private HttpSession session;
+	
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		int deptno=0;
-		session=req.getSession();
-		deptno=(int) session.getAttribute("deptno");
 		
-		if(deptno==1) {
-			System.out.println("권한이 없습니다.");
-			RequestDispatcher rd;
-			rd=req.getRequestDispatcher("/error/reject.jsp");
-			rd.forward(req,resp);
-		}else {
 			
 			StuScoreDao stuScoreDao=new StuScoreDao();
 			List<Integer> listA =stuScoreDao.selectLecNo();
@@ -52,7 +43,7 @@ public class StuScoreCuController extends HttpServlet {
 			RequestDispatcher rd;
 			rd=req.getRequestDispatcher("/stuMgmt/stuScoreList.jsp");
 			rd.forward(req,resp);
-		}
+		
 	}
 	
 }

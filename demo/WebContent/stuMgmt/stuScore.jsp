@@ -71,6 +71,13 @@
 <script type="text/javascript" src="/js/jquery-1.12.4.js"></script>
 
 <script type="text/javascript">
+	<%int deptno=(Integer)session.getAttribute("deptno");%>
+	var deptno='<%=deptno%>';
+	if(deptno==1||deptno==2){
+		alert('해당 기능을 실행 할 수 있는 권한이 없습니다.');
+		location.href='javascript:history.back()';
+	}
+	
 
 </script>
 </head>
@@ -116,6 +123,7 @@
 					<td><input class="inputScore" name="java" type="text" value="${bean.java }" /></td>
 					<td><input class="inputScore" name="web" type="text" value="${bean.web }" /></td>
 					<td><input class="inputScore" name="framework" type="text" value="${bean.framework }" /></td>
+					<input type="hidden" value="<%=request.getAttribute("lecNo") %>" name="lecNo2"/>
 					<td><button class="ok" type="submit">확인</button></td>		
 		</form>
 				</tr>
