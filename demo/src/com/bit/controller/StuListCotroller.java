@@ -95,6 +95,9 @@ public class StuListCotroller extends HttpServlet {
 				
 				// 페이지 이동했을 때 강의 선택 셀렉트 박스에 강의 리스트 셋.
 				req.setAttribute("allLecList", info.lecInfoList()); 
+				
+				
+				req.setAttribute("getLectureName", attRate.stuAttList(lecNo));
 			
 				RequestDispatcher rd = req.getRequestDispatcher("./stuList.jsp");
 				rd.forward(req, resp);
