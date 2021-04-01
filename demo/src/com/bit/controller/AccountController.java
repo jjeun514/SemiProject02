@@ -18,6 +18,7 @@ import com.test.model.Dao;
 
 @WebServlet("/accAdd.bit")
 public class AccountController extends HttpServlet {
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		//이부분 없으면 ajax 한글 깨짐
