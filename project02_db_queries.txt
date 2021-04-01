@@ -90,16 +90,15 @@ stuAtt int(2),
 stuLate int(2),
 stuAbsent int(2),
 attTotal int(2),
-attDay DATE,
 foreign key (stuNo) references student(stuNo)
 );
 
 -- 홍보용 홈페이지 강의 테이블 생성
 CREATE TABLE adlecture (
-adlecNo INT AUTO_INCREMENT PRIMARY key,
-lecName VARCHAR(50) NULL DEFAULT NULL,
-lecStartDate DATE,
-lecFinishDate DATE
+   adlecNo INT AUTO_INCREMENT PRIMARY key,
+   lecName VARCHAR(50) NULL DEFAULT NULL,
+   lecStartDate DATE ,
+   lecFinishDate DATE
 );
 
 # 더미데이터
@@ -119,24 +118,18 @@ insert into emp(ename, empPhone, deptNo) values('이현주', '01057861256', 3);
 insert into emp(ename, empPhone, deptNo) values('임경균', '01024788236', 3);
 
 -- 계정
-insert into account(sysId, sysPw, empNo) values('aaa','111',1);
-insert into account(sysId, sysPw, empNo) values('bbb','222',2);
-insert into account(sysId, sysPw, empNo) values('ccc','333',3);
+insert into account(sysId, sysPw, empNo) values('park0543','apfhddlek!',1);
+insert into account(sysId, sysPw, empNo) values('LeeRin','sorksnrnrp?',2);
+insert into account(sysId, sysPw, empNo) values('hyj9920','dudwlwlfhd',3);
 insert into account(sysId, sysPw, empNo) values('lhj0305','gpgpahfmrpTwl?!',4);
 insert into account(sysId, sysPw, empNo) values('jinsya','ckwdkqhwlaktpdy',5);
 insert into account(sysId, sysPw, empNo) values('joo2130','whffudy',6);
 insert into account(sysId, sysPw, empNo) values('todaysLim','RMxdlek!!!',7);
 
 -- 강의
-insert into lecture(lecName, lecRoom, lecStartDate, lecFinishDate, empNo, lecDays) 
-values ('웹 개발자 양성과정 A','A1', "2021-04-01", date_add("2021-04-01",interval 91 day), 5, 
-lecDays(str_to_date("2021-04-01",'%Y-%m-%d'),str_to_date("2021-06-30",'%Y-%m-%d')));
-insert into lecture(lecName, lecRoom, lecStartDate, lecFinishDate, empNo, lecDays) 
-values ('웹 개발자 양성과정 B','B1', "2021-04-01", date_add("2021-04-01",interval 91 day), 6, 
-lecDays(str_to_date("2021-04-01",'%Y-%m-%d'),str_to_date("2021-06-30",'%Y-%m-%d')));
-insert into lecture(lecName, lecRoom, lecStartDate, lecFinishDate, empNo, lecDays) 
-values ('웹 개발자 양성과정 C','C1', "2021-04-01", date_add("2021-04-01",interval 91 day), 7, 
-lecDays(str_to_date("2021-04-01",'%Y-%m-%d'),str_to_date("2021-06-30",'%Y-%m-%d')));
+insert into lecture(lecName, lecRoom, lecStartDate, lecFinishDate, empNo) values ('웹 개발자 양성과정 A','A1', "2021-04-01", date_add("2021-04-01",interval 91 day), 5);
+insert into lecture(lecName, lecRoom, lecStartDate, lecFinishDate, empNo) values ('웹 개발자 양성과정 B','B1', "2021-04-01", date_add("2021-04-01",interval 91 day), 6);
+insert into lecture(lecName, lecRoom, lecStartDate, lecFinishDate, empNo) values ('웹 개발자 양성과정 C','C1', "2021-04-01", date_add("2021-04-01",interval 91 day), 7);
 
 -- 학생
 insert into student(stuName, stuPhone, lecNo) values('정다빈', '01085278563',1);

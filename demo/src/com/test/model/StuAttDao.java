@@ -62,6 +62,7 @@ public class StuAttDao {
 			e.printStackTrace();
 		} finally {
 			try {
+				if(rs!=null)rs.close();
 				if(pstmt!=null)pstmt.close();
 				if(conn!=null)conn.close();
 			} catch (SQLException e) {
@@ -96,6 +97,7 @@ public class StuAttDao {
 			e.printStackTrace();
 		} finally {
 			try {
+				if(rs!=null)rs.close();
 				if(pstmt!=null)pstmt.close();
 				if(conn!=null)conn.close();
 			} catch (SQLException e) {
@@ -138,7 +140,7 @@ public class StuAttDao {
 		List<StuInfoDto> list=new ArrayList<StuInfoDto>();
 		
 		String query = "select stu.stuNo, stu.stuName, stu.stuPhone, sum(ifnull(att.stuAtt,0)) as stuAtt, sum(ifnull(att.stuLate,0)) as stuLate,";
-		query       += " sum(ifnull(att.stuAbsent,0)) as stuAbsent, sum(ifnull(att.attTotal,0)) as attTotal, lec.lecNo,";
+		query       += " sum(ifnull(att.stuAbsent,0)) as stuAbsent, sum(ifnull(att.attTotal,0)) as attTotal, lec.lecNo, lec.lecName";
 		query       += " lec.lecDays from student stu left outer join attendance att on stu.stuNo=att.stuNo";
 		query       += " left outer join lecture lec on stu.lecNo=lec.lecNo where stu.lecNo = ? group by stu.stuNo;";
 		System.out.println(query);
@@ -161,6 +163,7 @@ public class StuAttDao {
 				stuList.setStuAbsent(rs.getInt("stuAbsent"));
 				stuList.setAttTotal(rs.getInt("attTotal"));
 				stuList.setLecNo(rs.getInt("lecNo"));
+				stuList.setLecName(rs.getString("lecName"));
 				stuList.setLecDays(rs.getString("lecDays"));
 				list.add(stuList);
 			}
@@ -170,6 +173,7 @@ public class StuAttDao {
 			e.printStackTrace();
 		} finally {
 			try {
+				if(rs!=null)rs.close();
 				if(pstmt!=null)pstmt.close();
 				if(conn!=null)conn.close();
 			} catch (SQLException e) {

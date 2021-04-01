@@ -66,7 +66,7 @@
 </head>
 <body>
 <%@ include file="/templates/menu.jspf" %>
-<h1>＜ 출결 관리 ＞</h1>
+<h1>＜ 출결 현황 ＞</h1>
 	<form action="${pageContext.request.contextPath }/stuMgmt/stuAttStatus.bit" method = "post">
 			<table id="topPart">
 				<tr><td><select name="selectLec" onchange="this.form.submit();">

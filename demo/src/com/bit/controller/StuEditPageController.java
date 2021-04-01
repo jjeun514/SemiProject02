@@ -50,9 +50,10 @@ public class StuEditPageController extends HttpServlet {
 			stuLate = stuLate;
 		}
 		
-		stuAttTotal = (int)Math.round((double)(stuAttSum-stuAbsent)/lecDays*100);
-					
-		detail.setAttTotal(stuAttTotal);
+		if ( lecDays != 0 ) {
+			stuAttTotal = (int)Math.round(((double)stuAtt/lecDays)*100);
+			detail.setAttTotal(stuAttTotal);
+		} else { detail.setAttTotal(stuAtt); }
 		
 		System.out.println("----------------------학생 번호"+detail.getStuNo());
 				

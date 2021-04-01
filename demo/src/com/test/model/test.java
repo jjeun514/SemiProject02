@@ -6,7 +6,8 @@ public class test {
 		int a = 10;
 		int b = 3;
 		
-		int c = Math.floorDiv(a, b);
+		int c = (int)Math.round(((double)b/a)*100);
+		
 		System.out.println(c);
 	}
 

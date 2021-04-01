@@ -58,6 +58,7 @@ public class StuDetailDao {
 			e.printStackTrace();
 		} finally {
 			try {
+				if(rs!=null)rs.close();
 				if(pstmt!=null)pstmt.close();
 				if(conn!=null)conn.close();
 			} catch (SQLException e) {
@@ -100,6 +101,7 @@ public class StuDetailDao {
 			e.printStackTrace();
 		} finally {
 			try {
+				if(rs!=null)rs.close();
 				if(pstmt!=null)pstmt.close();
 				if(conn!=null)conn.close();
 			} catch (SQLException e) {

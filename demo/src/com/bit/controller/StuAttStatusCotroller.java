@@ -56,9 +56,11 @@ public class StuAttStatusCotroller extends HttpServlet {
 						stuAttSum = stuAbsent + lateCal;
 					}
 					
-					stuAttTotal = (int)Math.round((double)(stuAtt-stuAttSum)/lecDays*100);
+					if ( lecDays != 0 ) {
+					stuAttTotal = (int)Math.round(((double)stuAtt/lecDays)*100);
 					
-					stuInfoDto.setAttTotal(stuAttTotal);//계산된 출석률 
+					stuInfoDto.setAttTotal(stuAttTotal);//계산된 출석률
+					} else { stuInfoDto.setAttTotal(stuAtt); }
 					break;
 				}
 			}

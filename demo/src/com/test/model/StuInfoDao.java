@@ -30,8 +30,8 @@ public class StuInfoDao {
 	public List<StuInfoDto> stuList(int lecNo) {
 		List<StuInfoDto> list=new ArrayList<StuInfoDto>();
 		
-		String query = "select stu.stuNo, stu.stuName, stu.stuPhone, score.java, score.web, score.framework, lec.lecDays";
-		query       += " from student stu left outer join score score on stu.stuNo = score.stuNo";
+		String query = "select stu.stuNo, stu.stuName, stu.stuPhone, score.java, score.web, score.framework, lec.lecDays,";
+		query       += " lec.lecName from student stu left outer join score score on stu.stuNo = score.stuNo";
 		query       += " left outer join lecture lec on stu.lecNo = lec.lecNo where stu.lecNo = ? order by stu.stuNo, stu.lecNo;";
 		System.out.println(query);
 		
@@ -52,6 +52,7 @@ public class StuInfoDao {
 				stuInfo.setWeb(rs.getInt("web"));
 				stuInfo.setFramework(rs.getInt("framework"));
 				stuInfo.setLecDays(rs.getString("lecDays"));
+				stuInfo.setLecName(rs.getString("lecName"));
 				list.add(stuInfo);
 			}
 			System.out.println("리스트 add 후"+list.size());
