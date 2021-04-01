@@ -19,8 +19,6 @@ public class StuScoreController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		StuScoreDao scoreDao=new StuScoreDao();
-		req.setAttribute("lecName", scoreDao.selectLecName());
 		
 		int deptno=0;
 		session=req.getSession();
@@ -41,6 +39,8 @@ public class StuScoreController extends HttpServlet {
 				lecNo=Integer.parseInt(req.getParameter("scoreList"));
 			}
 			
+			StuScoreDao scoreDao=new StuScoreDao();
+			req.setAttribute("lecName", scoreDao.selectLecName());
 			
 			req.setAttribute("allList", scoreDao.selectAll(lecNo));
 			
