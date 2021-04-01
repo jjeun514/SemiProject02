@@ -31,22 +31,22 @@ public class StuListCotroller extends HttpServlet {
 		 */		
 		System.out.println("----------stuListController-----------");
 		
-//		int deptNo = 0;
-//		session=req.getSession();
-//		try {
-//			deptNo=(int) session.getAttribute("deptno");
-//			System.out.println("[NewLecController] deptNo: "+deptNo);
-//		} catch(NullPointerException e) {
-//			System.out.println("[NewLecController] 로그인없이 GET방식 접근");
-//
-//			if( deptNo==0 ) {
-//				System.out.println("[NewLecController] 로그인 안됨(deptNo: 0)");
-//				resp.setContentType("text/html; charset=UTF-8");
-//				PrintWriter out = resp.getWriter();
-//				out.println("<script>alert('로그인을 해주세요.'); location.href='/demo/';</script>");
-//				out.flush();
-//				
-//			} else if ( deptNo > 0 ) {
+		int deptNo = 0;
+		session=req.getSession();
+		try {
+			deptNo=(int) session.getAttribute("deptno");
+			System.out.println("[NewLecController] deptNo: "+deptNo);
+		} catch(NullPointerException e) {
+			System.out.println("[NewLecController] 로그인없이 GET방식 접근");
+		}
+		
+		if( deptNo==0 ) {
+			System.out.println("[NewLecController] 로그인 안됨(deptNo: 0)");
+			resp.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = resp.getWriter();
+			out.println("<script>alert('로그인을 해주세요.'); location.href='/demo/';</script>");
+			out.flush();
+		} else if ( deptNo==1 || deptNo==2 || deptNo==3 ) {
 				int lecNo = Integer.parseInt(req.getParameter("selectLec"));
 				System.out.println("stuPage에서 선택한 강의 번호 : " + lecNo);
 				
@@ -80,9 +80,11 @@ public class StuListCotroller extends HttpServlet {
 								stuAttSum = stuAbsent + lateCal;
 							}
 							
-							stuAttTotal = (int)Math.round((double)(stuAtt-stuAttSum)/lecDays*100);
+							if ( lecDays != 0 ) {
+							stuAttTotal = (int)Math.round(((double)stuAtt/lecDays)*100);
 							
-							stuInfoDto.setAttTotal(stuAttTotal);//계산된 출석률 
+							stuInfoDto.setAttTotal(stuAttTotal);//계산된 출석률
+							} else { stuInfoDto.setAttTotal(stuAtt); }
 							break;
 						}
 					}
@@ -96,7 +98,13 @@ public class StuListCotroller extends HttpServlet {
 			
 				RequestDispatcher rd = req.getRequestDispatcher("./stuList.jsp");
 				rd.forward(req, resp);
-//			}			
-//		}
+		} else {
+			System.out.println("[NewLecController] 로그인 안됨(deptNo: 0)");
+			resp.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = resp.getWriter();
+			out.println("<script>alert('로그인을 해주세요.'); location.href='/demo/';</script>");
+			out.flush();
+		}
+	
 	}
 }

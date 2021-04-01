@@ -52,7 +52,7 @@ public class StuAttPageController extends HttpServlet {
 				rd.forward(req, resp);
 				
 			} else if( deptNo == 1 ) {
-				System.out.println("[NewLecController] 행정/강사 계정임");
+				System.out.println("[NewLecController] 영업 계정임");
 				resp.setContentType("text/html; charset=UTF-8");
 				PrintWriter out = resp.getWriter();
 				out.println("<script>alert('권한이 없습니다.\\n행정에 문의하세요.'); location.href='javascript:history.back()';</script>");

@@ -50,7 +50,7 @@ public class StuDetailController extends HttpServlet {
 		} else {
 			
 			if( deptNo==3 ) {
-				System.out.println("[NewLecController] 영업/행정 계정임");
+				System.out.println("[NewLecController] 강사 계정임");
 				resp.setContentType("text/html; charset=UTF-8");
 				PrintWriter out = resp.getWriter();
 				out.println("<script>alert('권한이 없습니다.\\n행정에 문의하세요.'); location.href='javascript:history.back()';</script>");
@@ -84,9 +84,10 @@ public class StuDetailController extends HttpServlet {
 					stuLate = stuLate;
 				}
 				
-				stuAttTotal = (int)Math.round((double)(stuAttSum-stuAbsent)/lecDays*100);
-							
-				detail.setAttTotal(stuAttTotal);
+				if ( lecDays != 0 ) {
+					stuAttTotal = (int)Math.round(((double)stuAtt/lecDays)*100);							
+					detail.setAttTotal(stuAttTotal);
+				} else { detail.setAttTotal(stuAtt); }
 						
 				req.setAttribute("stuDatail", detail);
 
