@@ -5,7 +5,7 @@
 	id="WebApp_ID" version="3.0">
 	<display-name>project02</display-name>
 	<welcome-file-list>
-		<welcome-file>login.jsp</welcome-file>
+		<welcome-file>/login.jsp</welcome-file>
 	</welcome-file-list>
 	<error-page><!--404에러처리 #문서를 찾을 수 없을때-->
 		<error-code>404</error-code>
