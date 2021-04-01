@@ -131,7 +131,7 @@ $(function(){
 		}
 		%>
 
-		<td id="id"><img src="<%=application.getContextPath()%>/imgs/user3.png"><%=session.getAttribute("deptno") %></td>
+		<td id="id"><img src="<%=application.getContextPath()%>/imgs/user3.png"><%=session.getAttribute("sysId")+"님"%></td>
 		<td id="logout"><a href="${pageContext.request.contextPath }/logout.bit" >로그아웃</a></td>
 
 	</tr>
