@@ -7,6 +7,6 @@
 <title>404에러 페이지</title>
 </head>
 <body>
-  <h1>요청하신 페이지는 존재하지 않습니다.</h1>
+  <img alt="" src="/imgs/404img.png"/>
 </body>
 </html>
