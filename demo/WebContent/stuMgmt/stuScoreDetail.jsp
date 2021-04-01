@@ -61,7 +61,12 @@ button{
 </style>
 <script type="text/javascript" src="/js/jquery-1.12.4.js"></script>
 <script type="text/javascript">
-
+	<%int deptno=(Integer)session.getAttribute("deptno");%>
+	var deptno='<%=deptno%>';
+	if(deptno==2){
+		alert('해당 기능을 실행할 수 있는 권한이 없습니다.');
+		location.href='javascript:history.back()';
+	}
 
 </script>
 

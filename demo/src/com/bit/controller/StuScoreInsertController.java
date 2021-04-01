@@ -45,12 +45,13 @@ public class StuScoreInsertController extends HttpServlet {
 		int java=Integer.parseInt(req.getParameter("java"));
 		int web=Integer.parseInt(req.getParameter("web"));
 		int framework=Integer.parseInt(req.getParameter("framework"));
+		int lecNo2=Integer.parseInt(req.getParameter("lecNo2"));
 		
 		StuScoreDao dao=new StuScoreDao();
 		
 		dao.updateScore(stuNo, java, web, framework);
 		
-		resp.sendRedirect("./stuScore.bit");
+		resp.sendRedirect("./stuScore.bit?scoreList="+lecNo2);
 	}
 	
 }
