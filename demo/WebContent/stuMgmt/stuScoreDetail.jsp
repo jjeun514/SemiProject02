@@ -61,7 +61,12 @@ button{
 </style>
 <script type="text/javascript" src="/js/jquery-1.12.4.js"></script>
 <script type="text/javascript">
-
+	<%int deptno=(Integer)session.getAttribute("deptno");%>
+	var deptno='<%=deptno%>';
+	if(deptno==2){
+		alert('해당 기능을 실행할 수 있는 권한이 없습니다.');
+		location.href='javascript:history.back()';
+	}
 
 </script>
 
@@ -102,9 +107,9 @@ button{
 		
 	<tr>
 		<td colspan="2">
-			<button type="submit">수정</button>
-			<button type="button"><a href="${pageContext.request.contextPath}/stuMgmt/stuScoreDelete.bit">삭제</a></button>
-			<button type="button"><a href="${pageContext.request.contextPath}/stuMgmt/stuScoreList.bit">목록</a></button>
+			<button type="submit">수 정</button>
+			<button type="button" onclick="location.href='${pageContext.request.contextPath}/stuMgmt/stuScoreDelete.bit?stuNo=<%=bean.getStuNo()%>'">삭 제</button>
+			<button type="button" onclick="location.href='${pageContext.request.contextPath}/stuMgmt/stuScoreList.bit'">목 록</button>
 		</td>
 	</tr>
 	</form>

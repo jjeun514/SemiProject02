@@ -111,7 +111,7 @@ $(function(){
 	<form action="accAdd.bit" method="post">
 		<table>
 			<tr>
-				<td><label>id (email)</label></td>
+				<td><label>id </label></td>
 				<td><input type="text" id="sysId" name="sysId"></td>
 				<td><button id="idTest" type="button">중복체크</button></td>
 			</tr>

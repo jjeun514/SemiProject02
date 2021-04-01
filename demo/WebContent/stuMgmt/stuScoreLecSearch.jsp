@@ -1,9 +1,7 @@
-<%@page import="com.test.model.StuScoreDto"%>
-<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,23 +24,20 @@
 			cursor: pointer;
 			color: black;
 		}
-		.Score{
+		#stuScore{
 			width: 80%;
 			margin: auto;
 			text-align: center;
 			empty-cells: hide;
 		}
-		.Score{
-			margin-bottom: 5px;
-		}
-		.Score th{
+		#stuScore th{
 			background-color: #8b8bb5;
 			color: white;
 		}
-		.Score,#stuScore th,#stuScore td{
+		#stuScore,#stuScore th,#stuScore td{
 			border: solid 1px black;
 		}
-		.Score a{
+		#stuScore a{
 			/*셀 전체에 링크 걸리도록*/
 			display: block;
 			width: 100%;
@@ -52,7 +47,7 @@
 			color: black;
 		}
 		/*링크에 마우스 올렸을 때*/
-		.Score .link:hover{
+		#stuScore .link:hover{
 			color: black;
 			background-color: #f5f5ff;
 		}
@@ -76,20 +71,14 @@
 <script type="text/javascript" src="/js/jquery-1.12.4.js"></script>
 
 <script type="text/javascript">
-<%int deptno=(Integer)session.getAttribute("deptno");%>
-var deptno='<%=deptno%>';
-if(deptno==1){
-	alert('해당 기능을 실행할 수 있는 권한이 없습니다.');
-	location.href='javascript:history.back()';
-}
 
 
 </script>
 </head>
 
 <body>
-<%@ include file="/templates/menu.jspf" %>
-<h1>＜ 성적 현황 ＞</h1>
+<%@ include file="../templates/menu.jspf" %>
+<h1>＜ 성적 현황＞</h1>
 
 <form action="${pageContext.request.contextPath}/stuMgmt/stuSearch.bit" >
 <table id="topPart">
@@ -104,12 +93,8 @@ if(deptno==1){
 	</td>
 </tr>
 </form>
-
 </table>
-<!--강의1 성적 목록  -->
-<%int cnt=0; %>
-<c:forEach items="${lecture }" var="listA">
-<table class="Score">
+	<table id="stuScore">
 		<thead>
 			<tr>
 				<th>학번</th>
@@ -121,26 +106,20 @@ if(deptno==1){
 		</thead>
 		
  		<tbody>
-			<%List<StuScoreDto> lecList=null; 
-				lecList=(List<StuScoreDto>)request.getAttribute("lecList"+cnt);
-				if(lecList!=null){
-					for(StuScoreDto bean:lecList){
-			%>
+			<c:forEach items="${allList}" var="bean">
 				<tr class="link">
-					<td><a href="${pageContext.request.contextPath}/stuMgmt/stuScoreDetail.bit?stuNo=<%=bean.getStuNo() %>"><%=bean.getStuNo() %></a></td>
-					<td><a href="${pageContext.request.contextPath}/stuMgmt/stuScoreDetail.bit?stuNo=<%=bean.getStuNo() %>"><%=bean.getStuName()%></a></td>
-					<td><a href="${pageContext.request.contextPath}/stuMgmt/stuScoreDetail.bit?stuNo=<%=bean.getStuNo() %>"><%=bean.getJava() %></a></td>
-					<td><a href="${pageContext.request.contextPath}/stuMgmt/stuScoreDetail.bit?stuNo=<%=bean.getStuNo() %>"><%=bean.getWeb() %></a></td>
-					<td><a href="${pageContext.request.contextPath}/stuMgmt/stuScoreDetail.bit?stuNo=<%=bean.getStuNo() %>"><%=bean.getFramework()%></a></td>
+					
+				<td><a href="${pageContext.request.contextPath}/stuMgmt/stuScoreDetail.bit?stuNo=${bean.stuNo }">${bean.stuNo }</a></td>
+					<td><a href="${pageContext.request.contextPath}/stuMgmt/stuScoreDetail.bit?stuNo=${bean.stuNo }">${bean.stuName }</a></td>
+					<td><a href="${pageContext.request.contextPath}/stuMgmt/stuScoreDetail.bit?stuNo=${bean.stuNo }">${bean.java }</a></td>
+					<td><a href="${pageContext.request.contextPath}/stuMgmt/stuScoreDetail.bit?stuNo=${bean.stuNo }">${bean.web }</a></td>
+					<td><a href="${pageContext.request.contextPath}/stuMgmt/stuScoreDetail.bit?stuNo=${bean.stuNo }">${bean.framework}</a></td>
+					
 				</tr>
-			<% 	}
-			}
-			cnt++;
-			%>
+			</c:forEach>	
 		</tbody>
-</table>
-</c:forEach>
-
-		<%@ include file="../templates/footer.jspf" %>
-	</body>
+	</table>
+	
+<%@ include file="../templates/footer.jspf" %>
+</body>
 </html>

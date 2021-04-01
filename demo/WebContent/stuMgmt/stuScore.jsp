@@ -71,18 +71,20 @@
 <script type="text/javascript" src="/js/jquery-1.12.4.js"></script>
 
 <script type="text/javascript">
+	<%int deptno=(Integer)session.getAttribute("deptno");%>
+	var deptno='<%=deptno%>';
+	if(deptno==1||deptno==2){
+		alert('해당 기능을 실행 할 수 있는 권한이 없습니다.');
+		location.href='javascript:history.back()';
+	}
+	
 
 </script>
 </head>
 
 <body>
 <%@ include file="../templates/menu.jspf" %>
-<h1>＜ 성적 관리 ＞</h1>
-
-<div>
-<h2 id="h2"> 안녕하세요  </h2>
-<button id="test">수정</button>
-</div>
+<h1>＜ 성적 입력 ＞</h1>
 
 <form action="${pageContext.request.contextPath}/stuMgmt/stuScore.bit" >
 <table id="topPart">
@@ -90,9 +92,11 @@
 	<td>
 		<select name="scoreList" onchange="this.form.submit();">
 			<option value="0">강의를 선택하시오</option>
-			<option value="1">웹 개발자 양성 A</option>
-			<option value="2">웹 개발자 양성 B</option>
-			<option value="3">웹 개발자 양성 C</option>
+	
+		<c:forEach items="${lecName }" var="lec">
+			<option value="${lec.lecNo }">${lec.lecName }</option>
+		</c:forEach>
+			
 		</select>
 	</td>
 </tr>
@@ -119,6 +123,7 @@
 					<td><input class="inputScore" name="java" type="text" value="${bean.java }" /></td>
 					<td><input class="inputScore" name="web" type="text" value="${bean.web }" /></td>
 					<td><input class="inputScore" name="framework" type="text" value="${bean.framework }" /></td>
+					<input type="hidden" value="<%=request.getAttribute("lecNo") %>" name="lecNo2"/>
 					<td><button class="ok" type="submit">확인</button></td>		
 		</form>
 				</tr>
