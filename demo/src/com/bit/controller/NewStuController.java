@@ -23,6 +23,7 @@ public class NewStuController extends HttpServlet {
 		req.setCharacterEncoding("utf-8");
 		int stuNo = Integer.parseInt(req.getParameter("stuNo"));
 		String stuName = req.getParameter("stuName");
+	
 		String stuPhone = req.getParameter("stuPhone");
 		System.out.println(req.getParameter("lecNo"));
 		int lecNo = Integer.parseInt(req.getParameter("lecNo"));

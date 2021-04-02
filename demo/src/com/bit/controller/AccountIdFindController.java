@@ -20,8 +20,10 @@ public class AccountIdFindController extends HttpServlet{
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.setCharacterEncoding("utf-8");
 		Dao dao=new Dao();
 		String ename=req.getParameter("ename");
+		System.out.println("ename:"+ename);
 		int empNo=Integer.parseInt(req.getParameter("empNo"));
 
 		List<Dto> dto=dao.IdFind(ename, empNo);
