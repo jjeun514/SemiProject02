@@ -26,6 +26,8 @@ public class StuEditPageController extends HttpServlet {
 		
 		System.out.println("----------stuEditController-----------");
 		
+		req.setCharacterEncoding("utf-8");
+		
 		int stuNo = Integer.parseInt(req.getParameter("stuNo"));
 		System.out.println("수정 페이지에 사용할 수강생 번호 : " + stuNo);
 		

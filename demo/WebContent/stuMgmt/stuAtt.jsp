@@ -118,7 +118,6 @@ function attChoice(stuNoVal) {
 				<th>출석</th>
 				<th>지각</th>
 				<th>결석</th>
-				<th>입력여부</th>
 			</tr>
 		</thead>
 		
@@ -141,7 +140,6 @@ function attChoice(stuNoVal) {
 				<td><input type="checkbox" name="stuAtt<%=stuAtt.getStuNo() %>" value="1">출석</td>
 				<td><input type="checkbox" name="stuLate<%=stuAtt.getStuNo() %>" value="1">지각</td>
 				<td><input type="checkbox" name="stuAbsent<%=stuAtt.getStuNo() %>" value="1">결석</td>
-				<td id = "confirm">미입력</td>
 				
 				<td id="result">
 				</td>

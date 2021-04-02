@@ -40,10 +40,10 @@
 	box-shadow: inset 0 -40px 0 #e6eefa;
 }
 #contents td{
-	min-width: 350px;
-	width: 350px;
+	min-width: 250px;
+	width: 250px;
 	margin-left: -60px;
-	width: 500px;
+	width: 250px;
 }
 #max{
 	text-align: center;
@@ -59,6 +59,8 @@ button{
 	margin-right: 20px;
 	margin-left: 20px;
 }
+
+
 </style>
 
 <script type="text/javascript">
@@ -105,7 +107,7 @@ function newStu() {
 					if (lecInfo!=null){
 						for(StuInfoDto oneLec : lecInfo) {
 		%>
-			<td><%=oneLec.getLecStartDate() %></td><td><%=oneLec.getLecFinishDate() %></td>
+			<td colspan = "1"><%=oneLec.getLecStartDate() %></td><td colspan = "1"><%=oneLec.getLecFinishDate() %></td>
 		</tr>
 		<input type = "hidden" name = "lecNo" value = "<%=oneLec.getLecNo()%>"/>
 		<!-- <tr>
@@ -123,9 +125,9 @@ function newStu() {
 			if (stuNo!=null){
 				for(StuInfoDto No : stuNo) {
 			%>
-			<td>수강생 번호 : <input type = "text" name = "stuNo" value = "<%=No.getStuNo() %>" readonly = "readonly"/></td><%}} %>
-			<td>수강생 이름 : <input type="text" name = "stuName"/></td>
-			<td>전화 : <input type="text" name = "stuPhone"/></td>
+			<td>수강생 번호 : <input type = "text" name = "stuNo" value = "<%=No.getStuNo() %>" style = "width:50px;" readonly = "readonly"/></td><%}} %>
+			<td>수강생 이름 : <input type="text" name = "stuName" style = "width:100px;"/></td>
+			<td>전화 : <input type="text" name = "stuPhone" style = "width:120px;"/></td>
 		</tr>
 		<tr>
 			<td colspan="2">

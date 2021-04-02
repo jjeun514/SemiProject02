@@ -27,6 +27,8 @@ public class StuAttPageController extends HttpServlet {
 		 */
 		System.out.println("----------StuAttStatusPageController-----------");
 		
+		req.setCharacterEncoding("utf-8");
+		
 		int deptNo = 0;
 		session=req.getSession();
 		try {

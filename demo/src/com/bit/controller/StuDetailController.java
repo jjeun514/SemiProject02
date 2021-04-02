@@ -32,6 +32,8 @@ public class StuDetailController extends HttpServlet {
 		 */
 		System.out.println("----------stuDetailController-----------");
 		
+		req.setCharacterEncoding("utf-8");
+		
 		int deptNo = 0;
 		session=req.getSession();
 		try {
