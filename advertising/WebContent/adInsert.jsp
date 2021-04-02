@@ -66,7 +66,7 @@ h1{
     	
     	var arr=before.split('-');
     	
-    	var beforeDate=new Date(arr[0],arr[1]-1,arr[2]);
+    	var beforeDate=new Date(arr[0],arr[1],arr[2]);
     	console.log(before);
     	
     	var after=beforeDate.getFullYear()+"-"+(beforeDate.getMonth()+3)+"-"+beforeDate.getDate();
