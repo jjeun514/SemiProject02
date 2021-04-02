@@ -64,7 +64,7 @@
 	<div class="row">
 	  <!--본문 시작  -->
 	 <c:forEach items="${list }" var="bean"> 
-	  <div class="col-xs-4 col-sm-4">
+	  <div class="col-lg-4 col-md-6 col-sm-4">
 		  <table class="table">
 		  	<tr>
 		  		<td>
@@ -95,8 +95,8 @@
   	  </div>
   	</c:forEach>  
 	
-<div class="col-sm-11 col-xs-11"></div>
-<a href="/advertising/add.bit" class="btn btn-primary col-sm-1 col-xs-1" role="button">입 력</a>
+<div class="col-md-11"></div>
+<a href="/advertising/add.bit" class="btn btn-primary col-md-1" role="button">입 력</a>
 
 	  <!--본문 끝  -->
 	</div>
@@ -105,7 +105,7 @@
 
 	<!--footer  -->
 	<div class="row">
-	  <div class="col-xs-12 col-sm-12 text-center">
+	  <div class="col-sm-12 text-center">
 	  Copyright &copy; BitCamp All rights reserved.
 	  </div>
 	</div>

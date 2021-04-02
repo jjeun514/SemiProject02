@@ -32,6 +32,32 @@ public class StuScoreDao {
 		
 	}
 	
+	public StuScoreDto lecName(int lecNo) {
+		String sql="select lecName from lecture where lecNo=?";
+		
+		StuScoreDto bean=new StuScoreDto();
+		try {
+			conn=dataSource.getConnection();
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, lecNo);
+			rs=pstmt.executeQuery();
+			if(rs.next()) {bean.setLecName(rs.getString("lecName"));}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+				try {
+					if(conn!=null)conn.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			
+		}
+		
+		return bean;
+	}
+	
 	public List<StuScoreDto> selectLecName(){
 		String sql="select lecNo,lecName from lecture order by lecNo desc";
 		

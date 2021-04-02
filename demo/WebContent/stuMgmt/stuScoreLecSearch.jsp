@@ -80,6 +80,7 @@
 <%@ include file="../templates/menu.jspf" %>
 <h1>＜ 성적 현황＞</h1>
 
+
 <form action="${pageContext.request.contextPath}/stuMgmt/stuSearch.bit" >
 <table id="topPart">
 <tr>
