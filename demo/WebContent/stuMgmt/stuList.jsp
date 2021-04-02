@@ -69,7 +69,7 @@
 	<body>
 	<%@ include file="../templates/menu.jspf" %>
 	<h1>＜ 수강생 목록 ＞</h1>
-	<h3 id = "lectureName">반복문이 동적 처리되는 강의명은 도대체 어떻게 가지고 오냐?</h3>
+	<h3 id = "lectureName"></h3>
 	
 	<form action="${pageContext.request.contextPath }/stuMgmt/stuList.bit">
 			<table id="topPart">
@@ -117,21 +117,13 @@
 							<td><a href = "stuDetail.bit?stuNo=<%=stuInfo.getStuNo() %>"><%=stuInfo.getJava() %></a></td>
 							<td><a href = "stuDetail.bit?stuNo=<%=stuInfo.getStuNo() %>"><%=stuInfo.getWeb() %></a></td>
 							<td><a href = "stuDetail.bit?stuNo=<%=stuInfo.getStuNo() %>"><%=stuInfo.getFramework() %></a></td>
-							<input type = "hidden" id = "getLecture" value = "<%=stuInfo.getLecName() %>"/>
 						</tr>
 					<%}} %>
 					</tbody>
 					
 				</table>
 			
-	<script type="text/javascript">
 
-	var lec = document.getElementById("getLecture").value; <!--이게 이미 null-->
-	var name = document.getElementById("lectureName");
-	name.innerText = lec;
-	name.write(name.innerText);
-	
-	</script>
 				
 	</form>
 	<%@ include file="../templates/footer.jspf" %>
