@@ -120,12 +120,8 @@ insert into emp(ename, empPhone, deptNo) values('임경균', '01024788236', 3);
 
 -- 계정
 insert into account(sysId, sysPw, empNo) values('aaa','111',1);
-insert into account(sysId, sysPw, empNo) values('bbb','222',2);
-insert into account(sysId, sysPw, empNo) values('ccc','333',3);
-insert into account(sysId, sysPw, empNo) values('lhj0305','gpgpahfmrpTwl?!',4);
-insert into account(sysId, sysPw, empNo) values('jinsya','ckwdkqhwlaktpdy',5);
-insert into account(sysId, sysPw, empNo) values('joo2130','whffudy',6);
-insert into account(sysId, sysPw, empNo) values('todaysLim','RMxdlek!!!',7);
+insert into account(sysId, sysPw, empNo) values('bbb','111',3);
+insert into account(sysId, sysPw, empNo) values('ccc','111',5);
 
 -- 강의
 insert into lecture(lecName, lecRoom, lecStartDate, lecFinishDate, empNo, lecDays) 
