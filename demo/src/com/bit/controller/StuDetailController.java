@@ -72,7 +72,7 @@ public class StuDetailController extends HttpServlet {
 				StuInfoDto rateList = dao.stuAttStatusList(stuNo);
 				
 				
-				int attStuNo, rateStuNo, stuAtt, stuLate, stuAbsent, lecDays, stuAttTotal, stuAttSum=0;
+				int attStuNo, rateStuNo, stuAtt, stuLate, stuAbsent, lecDays, stuAttTotal=0, stuAttSum=0;
 
 				stuAtt = rateList.getStuAtt();
 				stuLate = rateList.getStuLate();
@@ -87,9 +87,10 @@ public class StuDetailController extends HttpServlet {
 				}
 				
 				if ( lecDays != 0 ) {
-					stuAttTotal = (int)Math.round(((double)stuAtt/lecDays)*100);							
-					detail.setAttTotal(stuAttTotal);
-				} else { detail.setAttTotal(stuAtt); }
+					stuAttTotal = (int)Math.round(((double)stuAtt/lecDays)*100);
+						if ( stuAttTotal > 100 ) { stuAttTotal = 100; }
+						detail.setAttTotal(stuAttTotal);//계산된 출석률
+					} else { detail.setAttTotal(stuAttTotal); }
 						
 				req.setAttribute("stuDatail", detail);
 

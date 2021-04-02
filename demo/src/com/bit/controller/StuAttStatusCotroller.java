@@ -41,7 +41,7 @@ public class StuAttStatusCotroller extends HttpServlet {
 			stuNo = stuInfoDto.getStuNo();
 			
 			for (int j = 0; j < rateList.size(); j++ ) {
-				int stuAtt, stuLate, stuAbsent, lecDays, stuAttTotal, stuAttSum=0;
+				int stuAtt, stuLate, stuAbsent, lecDays, stuAttTotal=0, stuAttSum=0;
 				StuInfoDto rateInfo = rateList.get(j);
 				rateStuNo = rateInfo.getStuNo();
 				if (stuNo == rateStuNo) {
@@ -58,9 +58,9 @@ public class StuAttStatusCotroller extends HttpServlet {
 					
 					if ( lecDays != 0 ) {
 					stuAttTotal = (int)Math.round(((double)stuAtt/lecDays)*100);
-					
-					stuInfoDto.setAttTotal(stuAttTotal);//계산된 출석률
-					} else { stuInfoDto.setAttTotal(stuAtt); }
+						if ( stuAttTotal > 100 ) { stuAttTotal = 100; }
+						stuInfoDto.setAttTotal(stuAttTotal);//계산된 출석률
+					} else { stuInfoDto.setAttTotal(stuAttTotal); }
 					break;
 				}
 			}

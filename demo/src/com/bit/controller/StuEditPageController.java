@@ -38,7 +38,7 @@ public class StuEditPageController extends HttpServlet {
 		StuAttDao attRate = new StuAttDao();
 		StuInfoDto rateList = dao.stuAttStatusList(stuNo);
 		
-		int attStuNo, rateStuNo, stuAtt, stuLate, stuAbsent, lecDays, stuAttTotal, stuAttSum=0;
+		int attStuNo, rateStuNo, stuAtt, stuLate, stuAbsent, lecDays, stuAttTotal=0, stuAttSum=0;
 
 		stuAtt    = rateList.getStuAtt();
 		stuLate   = rateList.getStuLate();
@@ -54,8 +54,9 @@ public class StuEditPageController extends HttpServlet {
 		
 		if ( lecDays != 0 ) {
 			stuAttTotal = (int)Math.round(((double)stuAtt/lecDays)*100);
-			detail.setAttTotal(stuAttTotal);
-		} else { detail.setAttTotal(stuAtt); }
+				if ( stuAttTotal > 100 ) { stuAttTotal = 100; }
+				detail.setAttTotal(stuAttTotal);//계산된 출석률
+			} else { detail.setAttTotal(stuAttTotal); }
 		
 		System.out.println("----------------------학생 번호"+detail.getStuNo());
 				
