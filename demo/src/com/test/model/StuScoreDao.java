@@ -47,6 +47,8 @@ public class StuScoreDao {
 			e.printStackTrace();
 		}finally {
 				try {
+					if(rs!=null)rs.close();
+					if(pstmt!=null)pstmt.close();
 					if(conn!=null)conn.close();
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
@@ -79,6 +81,8 @@ public class StuScoreDao {
 			e.printStackTrace();
 		}finally {
 			try {
+				if(rs!=null)rs.close();
+				if(pstmt!=null)pstmt.close();
 				if(conn!=null)conn.close();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
@@ -105,6 +109,15 @@ public class StuScoreDao {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}finally {
+			try {
+				if(rs!=null)rs.close();
+				if(pstmt!=null)pstmt.close();
+				if(conn!=null)conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		
 		System.out.println(listA);
@@ -136,8 +149,11 @@ public class StuScoreDao {
 			e.printStackTrace();
 		}finally {
 			try {
+				if(rs!=null)rs.close();
+				if(pstmt!=null)pstmt.close();
 				if(conn!=null)conn.close();
 			} catch (SQLException e) {
+				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -170,8 +186,11 @@ public class StuScoreDao {
 			e.printStackTrace();
 		}finally {
 			try {
+				if(rs!=null)rs.close();
+				if(pstmt!=null)pstmt.close();
 				if(conn!=null)conn.close();
 			} catch (SQLException e) {
+				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -199,6 +218,7 @@ public class StuScoreDao {
 			e.printStackTrace();
 		}finally {
 			try {
+				if(pstmt!=null)pstmt.close();
 				if(conn!=null)conn.close();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
@@ -226,6 +246,7 @@ public class StuScoreDao {
 			e.printStackTrace();
 		}finally {
 			try {
+				if(pstmt!=null)pstmt.close();
 				if(conn!=null)conn.close();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
